@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+release/
+
+# TypeScript cache
+tsconfig.tsbuildinfo
+
+# Vite cache
+.vite/
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea_modules/
+*.swp
+*.swo
+
+# Env / secrets
+.env
+.env.*
+
+# Claude
+.claude/
+
+# Logs
+*.log
+npm-debug.log*
