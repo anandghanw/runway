@@ -1,0 +1,83 @@
+.day-column {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex: 0 0 auto;
+  align-self: stretch;
+  border-right: 1px solid var(--border);
+  position: relative;
+}
+
+.day-column.alt-month {
+  background: var(--month-alt-bg);
+}
+
+.day-column.alt-week {
+  background: var(--week-alt-bg);
+}
+
+.day-column.today {
+  background: var(--today-bg);
+}
+
+.day-column.drop-over {
+  background: var(--drop-over-bg);
+}
+
+.day-header {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  position: sticky;
+  top: 24px; /* below the 24px week-header-row */
+  z-index: 5;
+  background: var(--surface);
+}
+
+.day-header.today-header {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.day-tasks {
+  flex: 1;
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: 60px;
+  position: relative;
+}
+
+.day-add-hint {
+  align-self: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--hover);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.day-column:hover .day-add-hint {
+  opacity: 1;
+}
+
+.day-add-hint:hover {
+  background: var(--accent);
+  color: #fff;
+}

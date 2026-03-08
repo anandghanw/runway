@@ -1,0 +1,88 @@
+.week-column {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-self: stretch;
+  border-right: 1px solid var(--border);
+  position: relative;
+}
+
+.week-column.alt-month {
+  background: var(--month-alt-bg);
+}
+
+.week-column.drop-over {
+  background: var(--drop-over-bg);
+}
+
+.week-column.current-week {
+  background: var(--today-bg);
+}
+
+.week-col-header {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--surface);
+  isolation: isolate;
+}
+
+.week-col-header.current-week-header {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.week-col-header.clickable {
+  cursor: pointer;
+}
+
+.week-col-header.clickable:hover {
+  color: var(--accent);
+  background: var(--hover);
+}
+
+.week-col-tasks {
+  flex: 1;
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: 60px;
+  position: relative;
+}
+
+.week-add-hint {
+  align-self: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--hover);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.week-column:hover .week-add-hint {
+  opacity: 1;
+}
+
+.week-add-hint:hover {
+  background: var(--accent);
+  color: #fff;
+}

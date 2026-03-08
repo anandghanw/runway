@@ -1,0 +1,28 @@
+.backup-panel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.backup-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  opacity: 0.5;
+  padding-right: 2px;
+}
+
+.import-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: border-color 0.1s, color 0.1s;
+}
+
+.import-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}

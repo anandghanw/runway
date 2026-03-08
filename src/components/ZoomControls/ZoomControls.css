@@ -1,0 +1,28 @@
+.zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.zoom-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s, border-color 0.1s;
+}
+
+.zoom-btn:hover {
+  background: var(--hover);
+  color: var(--text-primary);
+}
+
+.zoom-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}

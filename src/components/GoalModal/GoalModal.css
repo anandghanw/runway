@@ -1,0 +1,52 @@
+.modal-field input[type="date"] {
+  cursor: pointer;
+}
+
+.modal-field input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(40%) sepia(100%) saturate(500%) hue-rotate(190deg) brightness(120%);
+  opacity: 1;
+  width: 16px;
+  height: 16px;
+}
+
+.phase-dates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.color-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.color-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.color-swatch:hover {
+  transform: scale(1.15);
+}
+
+.color-swatch.selected {
+  border-color: var(--text-primary);
+  transform: scale(1.1);
+}
+
+.color-custom {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  padding: 0;
+  cursor: pointer;
+  background: none;
+}
