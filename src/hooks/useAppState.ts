@@ -106,6 +106,36 @@ function loadState(): AppState {
   return { tasks: [], phases: [] }
 }
 
+function shiftDate(date: string, yearDelta: number): string {
+  const d = new Date(date + 'T00:00:00')
+  d.setFullYear(d.getFullYear() + yearDelta)
+  return d.toISOString().slice(0, 10)
+}
+
+function shiftDemoToCurrentYear(state: AppState): AppState {
+  const currentYear = new Date().getFullYear()
+  // Detect the year the demo was authored from the first phase or task date
+  const allDates = [
+    ...state.phases.map(p => p.startDate),
+    ...state.tasks.map(t => t.date),
+  ]
+  if (allDates.length === 0) return state
+  const demoYear = parseInt(allDates[0].slice(0, 4), 10)
+  const delta = currentYear - demoYear
+  if (delta === 0) return state
+  return {
+    phases: state.phases.map(p => ({
+      ...p,
+      startDate: shiftDate(p.startDate, delta),
+      endDate: shiftDate(p.endDate, delta),
+    })),
+    tasks: state.tasks.map(t => ({
+      ...t,
+      date: shiftDate(t.date, delta),
+    })),
+  }
+}
+
 export function useAppState() {
   const [state, dispatch] = useReducer(reducer, undefined, loadState)
   const demoLoaded = useRef(false)
@@ -118,7 +148,7 @@ export function useAppState() {
       .then(r => r.text())
       .then(text => {
         const loaded = parseBackup(text)
-        if (loaded) dispatch({ type: 'LOAD_STATE', payload: loaded })
+        if (loaded) dispatch({ type: 'LOAD_STATE', payload: shiftDemoToCurrentYear(loaded) })
       })
       .catch(() => {})
   }, [])
