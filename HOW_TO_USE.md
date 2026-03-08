@@ -6,18 +6,19 @@ Runway is a year-at-a-glance planner. The top half shows a Gantt-style timeline 
 
 ## Install
 
+Download the latest installer from the [GitHub Releases page](https://github.com/anandghanw/runway/releases).
+
 ### Mac
 
-1. Find the installer at `release/Runway-<version>.dmg`
-2. Open the `.dmg` file
-3. Drag **Runway** into your **Applications** folder
-4. Open Runway from Applications or Spotlight (`⌘ Space` → type Runway)
+1. Download `Runway-<version>-arm64.dmg`
+2. Open the `.dmg` and drag **Runway** into your **Applications** folder
+3. Open Runway from Applications or Spotlight (`⌘ Space` → type Runway)
 
 > If macOS says the app can't be opened, right-click it → **Open** → **Open**
 
 ### Windows
 
-1. Find the installer at `release\Runway Setup <version>.exe`
+1. Download `Runway Setup <version>.exe`
 2. Double-click the installer — it runs silently and finishes in a few seconds
 3. Open Runway from the **Start Menu**
 

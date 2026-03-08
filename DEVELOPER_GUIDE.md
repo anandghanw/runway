@@ -4,37 +4,6 @@ A year-at-a-glance planning tool — Gantt phases + daily task lists in an Elect
 
 ---
 
-## Install the packaged app
-
-### Mac
-
-1. Open `release/Runway-<version>.dmg`
-2. Drag **Runway** to **Applications**
-3. Launch from Applications or Spotlight
-
-If macOS blocks the app ("unidentified developer"), right-click → Open → Open.
-
-### Windows
-
-1. Double-click `release/Runway Setup <version>.exe`
-2. The app installs and launches automatically
-3. Find it in the Start Menu as **Runway**
-
----
-
-## Data storage
-
-App data is stored in `localStorage` inside Electron. A plain-text backup is written automatically to:
-
-- **Mac/Linux:** `~/Documents/runway/runway-backup.txt`
-- **Windows:** `C:\Users\<you>\Documents\runway\runway-backup.txt`
-
-Daily snapshots (kept for 30 days) are saved under `~/Documents/runway/daily backups/`.
-
-Use **Export / Import** in the app to move data between machines.
-
----
-
 ## Developer setup
 
 ### Prerequisites
@@ -120,6 +89,39 @@ npm run electron:build:all
 Produces both the `.dmg` and `.exe` in `release/`.
 
 > **Note:** Building the Windows target from Mac requires Wine. Building the Mac target from Windows is not supported by electron-builder; use a Mac or a CI service (GitHub Actions, etc.).
+
+---
+
+## Install the packaged app
+
+Download the latest installer from the [GitHub Releases page](https://github.com/anandghanw/runway/releases), or use the files you just built from `release/`.
+
+### Mac
+
+1. Open `Runway-<version>-arm64.dmg`
+2. Drag **Runway** to **Applications**
+3. Launch from Applications or Spotlight
+
+If macOS blocks the app ("unidentified developer"), right-click → Open → Open.
+
+### Windows
+
+1. Double-click `Runway Setup <version>.exe`
+2. The app installs and launches automatically
+3. Find it in the Start Menu as **Runway**
+
+---
+
+## Data storage
+
+App data is stored in `localStorage` inside Electron. A plain-text backup is written automatically to:
+
+- **Mac/Linux:** `~/Documents/runway/runway-backup.txt`
+- **Windows:** `C:\Users\<you>\Documents\runway\runway-backup.txt`
+
+Daily snapshots (kept for 30 days) are saved under `~/Documents/runway/daily backups/`.
+
+Use **Export / Import** in the app to move data between machines.
 
 ---
 

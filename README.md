@@ -1,5 +1,14 @@
 # Runway
 
+## Install
+
+Download the latest release from [github.com/anandghanw/runway/releases](https://github.com/anandghanw/runway/releases).
+
+- **Mac** — download the `.dmg`, drag Runway to Applications
+- **Windows** — download the `.exe` installer, run it, find Runway in the Start Menu
+
+---
+
 ## The story
 
 I've always liked todo lists. Cards, checkboxes, kanban boards — the satisfaction of ticking things off. But they all had the same problem: **no sense of scale across time**.
