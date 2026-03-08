@@ -1,5 +1,9 @@
 # Runway
 
+A year-at-a-glance planner with Gantt phases for long-term goals and a daily task panel — offline, no accounts.
+
+![Runway](screenshots/year.png)
+
 ## Install
 
 Download the latest release from [github.com/anandghanw/runway/releases](https://github.com/anandghanw/runway/releases).
