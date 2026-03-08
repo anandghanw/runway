@@ -4,6 +4,8 @@ A year-at-a-glance planner with Gantt phases for long-term goals and a daily tas
 
 ![Runway](screenshots/year.png)
 
+> **Try the demo (preloaded with sample data):** [anandghanw.github.io/runway?demo](https://anandghanw.github.io/runway?demo)
+
 ## Install
 
 Download the latest release from [github.com/anandghanw/runway/releases](https://github.com/anandghanw/runway/releases).
@@ -18,6 +20,21 @@ To try it with sample data, import [`runway-backup-demo.txt`](runway-backup-demo
 - **Windows:** `C:\Users\<you>\Documents\runway\runway-backup.txt`
 
 Daily snapshots are kept for 30 days under the `daily backups/` subfolder. Everything stays local — no cloud.
+
+---
+
+## Use without installing
+
+You can also run Runway directly in your browser — no install needed:
+
+**[anandghanw.github.io/runway](https://anandghanw.github.io/runway)**
+
+Data is saved in your browser's localStorage. A few things to know:
+
+- No data goes to any server — it's all local to your browser
+- No automatic file backup — use **Backup → Export** to save a copy manually
+- If you clear your browser data, your data is gone — export regularly if you use this seriously
+- For reliable long-term use, the desktop app is the better choice
 
 ---
 

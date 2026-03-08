@@ -15,6 +15,7 @@ import { PhaseDndContext } from './dnd/GoalDndContext'
 import { AboutModal } from './components/AboutModal/AboutModal'
 import { useBackupFile } from './hooks/useBackupFile'
 import { formatBackup } from './utils/backup'
+import { IS_DEMO } from './hooks/useAppState'
 import './App.css'
 
 function newId(): string {
@@ -25,8 +26,9 @@ export default function App() {
   const { state, dispatch } = useAppState()
   const { write: writeBackup } = useBackupFile()
 
-  // Auto-write backup on every state change
+  // Auto-write backup on every state change (skip in demo mode)
   useEffect(() => {
+    if (IS_DEMO) return
     writeBackup(formatBackup(state))
   // writeBackup is stable (useCallback); state is the trigger
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -45,6 +47,13 @@ export default function App() {
   const [ganttPanelHeight, setGanttPanelHeight] = useState(
     Math.min(GANTT_HEADER_HEIGHT + initialNumRows * ROW_HEIGHT + GANTT_BTN_SPACE, window.innerHeight / 2)
   )
+
+  // Recalculate height when phases load (needed for demo mode where data loads async)
+  useEffect(() => {
+    const numRows = Math.max(state.phases.reduce((m, p) => Math.max(m, p.row), -1) + 1, 1)
+    const ideal = Math.min(GANTT_HEADER_HEIGHT + numRows * ROW_HEIGHT + GANTT_BTN_SPACE, window.innerHeight / 2)
+    setGanttPanelHeight(prev => Math.max(prev, ideal))
+  }, [state.phases])
   const [containerWidth, setContainerWidth] = useState(window.innerWidth)
   const ganttScrollRef = useRef<HTMLDivElement>(null)
   const scrollRef = useRef<HTMLDivElement>(null)

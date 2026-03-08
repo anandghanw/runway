@@ -1,5 +1,8 @@
-import { useReducer, useEffect } from 'react'
+import { useReducer, useEffect, useRef } from 'react'
 import { AppState, Task, Phase } from '../types'
+import { parseBackup } from '../utils/backup'
+
+export const IS_DEMO = new URLSearchParams(window.location.search).has('demo')
 
 type Action =
   | { type: 'ADD_TASK'; payload: Task }
@@ -89,11 +92,11 @@ const STORAGE_KEY = 'runway-state'
 const LEGACY_KEY = 'todo-gantt-state'
 
 function loadState(): AppState {
+  if (IS_DEMO) return { tasks: [], phases: [] }
   try {
     const raw = localStorage.getItem(STORAGE_KEY) ?? localStorage.getItem(LEGACY_KEY)
     if (raw) {
       const state = JSON.parse(raw)
-      // Support old localStorage data that used "goals" key
       const phases = state.phases ?? state.goals ?? []
       return { tasks: state.tasks ?? [], phases: packPhaseRows(phases) }
     }
@@ -105,8 +108,24 @@ function loadState(): AppState {
 
 export function useAppState() {
   const [state, dispatch] = useReducer(reducer, undefined, loadState)
+  const demoLoaded = useRef(false)
 
+  // In demo mode: fetch demo data once on mount, never write to localStorage
   useEffect(() => {
+    if (!IS_DEMO || demoLoaded.current) return
+    demoLoaded.current = true
+    fetch('runway-backup-demo.txt')
+      .then(r => r.text())
+      .then(text => {
+        const loaded = parseBackup(text)
+        if (loaded) dispatch({ type: 'LOAD_STATE', payload: loaded })
+      })
+      .catch(() => {})
+  }, [])
+
+  // Normal mode: persist to localStorage on every change
+  useEffect(() => {
+    if (IS_DEMO) return
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
     } catch {

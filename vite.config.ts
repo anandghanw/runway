@@ -31,8 +31,10 @@ function writeDailyBackup(content: string) {
   }
 }
 
+const isGHPages = process.env.DEPLOY_TARGET === 'ghpages'
+
 export default defineConfig({
-  base: './',
+  base: isGHPages ? '/runway/' : './',
   plugins: [
     react(),
     {

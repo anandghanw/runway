@@ -1,0 +1,411 @@
+# Runway Backup
+# Version: 1
+# Saved: 2026-03-07T09:00:00.000Z
+#
+# To restore: open Runway and click "Import backup".
+
+--- PHASES ---
+
+[PHASE]
+id: phase001
+title: Japan & Taiwan trip
+start: 2026-03-20
+end: 2026-04-05
+color: #e85d4a
+
+[PHASE]
+id: phase002
+title: Home office rework
+start: 2026-01-10
+end: 2026-03-15
+color: #f5a623
+
+[PHASE]
+id: phase003
+title: CNC router build
+start: 2026-04-10
+end: 2026-07-31
+color: #4f8ef7
+
+[PHASE]
+id: phase004
+title: Portugal road trip
+start: 2026-08-05
+end: 2026-08-22
+color: #27ae60
+
+[PHASE]
+id: phase005
+title: Smart home overhaul
+start: 2026-05-01
+end: 2026-09-30
+color: #e67e22
+
+[PHASE]
+id: phase006
+title: Side project — hardware product
+start: 2026-06-01
+end: 2026-12-31
+color: #9b59b6
+
+[PHASE]
+id: phase007
+title: ML / edge AI deep dive
+start: 2026-09-01
+end: 2026-12-31
+color: #1abc9c
+
+--- TASKS ---
+
+[TASK]
+id: task001
+title: Replace desk with sit-stand
+date: 2026-01-10
+completed: true
+order: 0
+description: Flexispot E7 frame + custom bamboo top. Measure twice, cut once.
+
+[TASK]
+id: task002
+title: Cable management overhaul
+date: 2026-01-15
+completed: true
+order: 0
+description: J-channel under desk, Velcro ties, label everything.
+
+[TASK]
+id: task003
+title: Mount monitors on dual arm
+date: 2026-01-18
+completed: true
+order: 0
+description: VESA 100x100. Check monitor weights before ordering arm.
+
+[TASK]
+id: task004
+title: Acoustic panels for back wall
+date: 2026-01-28
+completed: false
+order: 0
+description: DIY with Rockwool + fabric. Cut 6 panels 60x60cm.
+
+[TASK]
+id: task005
+title: Upgrade to 10GbE home network
+date: 2026-02-08
+completed: false
+order: 0
+description: MikroTik switch + SFP+ cards for NAS and desktop. Run new Cat8 to office.
+
+[TASK]
+id: task006
+title: Set up proper NAS
+date: 2026-02-20
+completed: false
+order: 0
+description: TrueNAS Scale on old desktop. 4x4TB in RAIDZ1. Set up Plex + Nextcloud.
+
+[TASK]
+id: task007
+title: New ambient lighting behind monitors
+date: 2026-03-01
+completed: false
+order: 0
+description: Govee or WLED strip. Sync to screen if possible.
+
+[TASK]
+id: task008
+title: Book Japan flights
+date: 2026-01-20
+completed: true
+order: 0
+description: Tokyo → Kyoto → Osaka → Taipei. Check if JR Pass still worth it in 2026.
+
+[TASK]
+id: task009
+title: Order JR Pass online
+date: 2026-02-15
+completed: true
+order: 0
+description: 14-day pass. Activate on arrival at airport.
+
+[TASK]
+id: task010
+title: Research Akihabara shops
+date: 2026-03-10
+completed: false
+order: 0
+description: Yodobashi, Sofmap, Super Potato. List of parts to hunt: RP2040 boards, sensors, JST connectors, keycaps.
+
+[TASK]
+id: task011
+title: Research night markets in Taipei
+date: 2026-03-12
+completed: false
+order: 0
+description: Shilin, Raohe. Also: ASUS concept store, maker spaces.
+
+[TASK]
+id: task012
+title: Arrive Tokyo — jetlag day
+date: 2026-03-20
+completed: false
+order: 0
+description: Don't plan anything heavy. Walk, eat ramen, sleep early.
+
+[TASK]
+id: task013
+title: Akihabara haul
+date: 2026-03-22
+completed: false
+order: 0
+description: Budget ¥30k for components. Priority: RP2040 minis, OLED displays, 18650 cells, good solder.
+
+[TASK]
+id: task014
+title: Day trip to Kyoto
+date: 2026-03-26
+completed: false
+order: 0
+description: Fushimi Inari early morning before crowds. Arashiyama bamboo grove after.
+
+[TASK]
+id: task015
+title: Taipei — visit Guanghua market
+date: 2026-04-01
+completed: false
+order: 0
+description: Electronics market. Get what I missed in Akihabara.
+
+[TASK]
+id: task016
+title: Order aluminium extrusions for CNC frame
+date: 2026-04-10
+completed: false
+order: 0
+description: 2040 V-slot, 1m lengths. Source locally to avoid shipping damage.
+
+[TASK]
+id: task017
+title: Print motor mounts
+date: 2026-04-20
+completed: false
+order: 0
+description: NEMA 17 mounts for X/Y gantry. Print in ASA not PLA — heat from steppers.
+
+[TASK]
+id: task018
+title: Wire up stepper drivers
+date: 2026-05-05
+completed: false
+order: 0
+description: TMC2209 on SKR Mini E3. Configure in Klipper. Check vref before connecting motors.
+
+[TASK]
+id: task019
+title: First cuts — wasteboard facing
+date: 2026-05-25
+completed: false
+order: 0
+description: Face the wasteboard flat. Then cut a calibration grid.
+
+[TASK]
+id: task020
+title: Cut aluminium test piece
+date: 2026-06-15
+completed: false
+order: 0
+description: Start with 1mm depth passes. Feeds and speeds from G-Wizard.
+
+[TASK]
+id: task021
+title: Replace all bulbs with smart bulbs
+date: 2026-05-03
+completed: false
+order: 0
+description: Philips Hue for living areas. Ikea Tradfri for less important rooms. All on Zigbee2MQTT.
+
+[TASK]
+id: task022
+title: Install smart thermostat
+date: 2026-05-18
+completed: false
+order: 0
+description: tado° v3+. Wire in, integrate with Home Assistant.
+
+[TASK]
+id: task023
+title: Door and window sensors throughout
+date: 2026-06-08
+completed: false
+order: 0
+description: Aqara Zigbee sensors. Automate: lights off when windows open, alarm if door open at night.
+
+[TASK]
+id: task024
+title: Set up Home Assistant dashboards
+date: 2026-07-01
+completed: false
+order: 0
+description: One for phone, one for wall tablet. Energy monitoring front and centre.
+
+[TASK]
+id: task025
+title: Solar monitoring integration
+date: 2026-07-20
+completed: false
+order: 0
+description: Pull data from inverter via Modbus. Graph generation vs consumption in HA.
+
+[TASK]
+id: task026
+title: Side project: define the product
+date: 2026-06-01
+completed: false
+order: 0
+description: What does it do, who buys it, what's the BOM cost, what's the price point?
+
+[TASK]
+id: task027
+title: First prototype on breadboard
+date: 2026-06-20
+completed: false
+order: 0
+description: RP2040 + sensors + display. Prove the concept before designing a PCB.
+
+[TASK]
+id: task028
+title: Design PCB in KiCad
+date: 2026-07-10
+completed: false
+order: 0
+description: First real PCB. Watch Phil's Lab videos before starting. Get DRC clean before sending off.
+
+[TASK]
+id: task029
+title: Order PCBs from JLCPCB
+date: 2026-07-25
+completed: false
+order: 0
+description: 5-piece prototype run. Also order stencil for paste. Lead time ~2 weeks.
+
+[TASK]
+id: task030
+title: Solder and test prototype PCBs
+date: 2026-08-12
+completed: false
+order: 0
+description: Hot plate reflow for SMD, hand solder connectors. Test each board before moving on.
+
+[TASK]
+id: task031
+title: Book Lisbon Airbnb
+date: 2026-06-10
+completed: false
+order: 0
+description: Base for 4 nights. Need parking and decent wifi.
+
+[TASK]
+id: task032
+title: Plan Portugal route
+date: 2026-07-05
+completed: false
+order: 0
+description: Lisbon → Sintra → Alentejo → Algarve → Porto. ~2 weeks driving.
+
+[TASK]
+id: task033
+title: Sintra day — Pena Palace
+date: 2026-08-07
+completed: false
+order: 0
+description: Go early, it gets packed by 10am. Book tickets online.
+
+[TASK]
+id: task034
+title: Drive to Algarve coast
+date: 2026-08-12
+completed: false
+order: 0
+description: Praia da Marinha, Ponta da Piedade. Rent kayak if weather good.
+
+[TASK]
+id: task035
+title: Porto — bookshop and francesinha
+date: 2026-08-19
+completed: false
+order: 0
+description: Livraria Lello. Find the best francesinha in town — ask locals not TripAdvisor.
+
+[TASK]
+id: task036
+title: Fast.ai course — start
+date: 2026-09-01
+completed: false
+order: 0
+description: Practical Deep Learning for Coders. Do the notebooks, don't just watch.
+
+[TASK]
+id: task037
+title: Run inference on Jetson Nano
+date: 2026-09-15
+completed: false
+order: 0
+description: Deploy a small vision model. See what frame rate I get on the edge hardware.
+
+[TASK]
+id: task038
+title: Train a custom image classifier
+date: 2026-10-05
+completed: false
+order: 0
+description: Something fun — classify my 3D prints, or detect tools on the workbench.
+
+[TASK]
+id: task039
+title: Integrate model into side project firmware
+date: 2026-10-25
+completed: false
+order: 0
+description: Run TFLite on RP2040 or offload to a companion SBC.
+
+[TASK]
+id: task040
+title: Explore multimodal models locally
+date: 2026-11-10
+completed: false
+order: 0
+description: Try LLaVA or Moondream on the workstation GPU. Use for workbench vision assistant idea.
+
+[TASK]
+id: task041
+title: Write up CNC build log
+date: 2026-11-20
+completed: false
+order: 0
+description: Full build log with photos. Post on the blog and maybe Hackaday.
+
+[TASK]
+id: task042
+title: Side project: enclosure design
+date: 2026-11-05
+completed: false
+order: 0
+description: Design in Fusion 360. Cut on the CNC, or send out for sheet metal if volumes justify it.
+
+[TASK]
+id: task043
+title: Side project: small batch order
+date: 2026-12-01
+completed: false
+order: 0
+description: 20 units. Get quote from CM or assemble in-house. Price out fulfilment options.
+
+[TASK]
+id: task044
+title: Year in review
+date: 2026-12-28
+completed: false
+order: 0
+description: What shipped, what I learned, what broke, what's next. Publish on the blog.
+

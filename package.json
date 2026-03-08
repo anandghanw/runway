@@ -13,7 +13,9 @@
     "electron:build:win": "tsc -b && vite build && electron-builder --win",
     "electron:build:all": "tsc -b && vite build && electron-builder --mac --win",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:web": "DEPLOY_TARGET=ghpages tsc -b && DEPLOY_TARGET=ghpages vite build",
+    "deploy": "npm run build:web && gh-pages -d dist"
   },
   "build": {
     "appId": "com.runway.todo-gantt",
@@ -31,7 +33,12 @@
     },
     "win": {
       "target": [
-        { "target": "nsis", "arch": ["x64"] }
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
       ]
     },
     "nsis": {
@@ -57,6 +64,7 @@
     "concurrently": "^9.2.1",
     "electron": "^40.8.0",
     "electron-builder": "^26.8.1",
+    "gh-pages": "^6.3.0",
     "typescript": "~5.8.3",
     "vite": "^6.3.4",
     "wait-on": "^9.0.4"
