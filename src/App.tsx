@@ -245,6 +245,7 @@ export default function App() {
     <div className={`app${isYearView ? ' year-view' : ''}`}>
       <header className="app-header">
         <button className="about-btn" onClick={() => setShowAbout(true)} title="About">Runway</button>
+        {IS_DEMO && <span className="demo-badge">demo</span>}
         <div className="year-nav">
           <button className="year-nav-btn" onClick={() => setSelectedYear(y => y - 1)}>&#8249;</button>
           <span className="year-nav-label">{selectedYear}</span>

@@ -15,7 +15,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "build:web": "DEPLOY_TARGET=ghpages tsc -b && DEPLOY_TARGET=ghpages vite build",
-    "deploy": "npm run build:web && gh-pages -d dist"
+    "deploy": "npm run build:web && gh-pages -d dist",
+    "release": "bash scripts/release.sh"
   },
   "build": {
     "appId": "com.runway.todo-gantt",
