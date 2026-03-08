@@ -11,7 +11,7 @@ Download the latest release from [github.com/anandghanw/runway/releases](https:/
 - **Mac** — download the `.dmg`, drag Runway to Applications
 - **Windows** — download the `.exe` installer, run it, find Runway in the Start Menu
 
-To try it with sample data, import [`runway-backup-demo.txt`](screenshots/runway-backup-demo.txt) using the **Backup → Import** button in the app.
+To try it with sample data, import [`runway-backup-demo.txt`](runway-backup-demo.txt) using the **Backup → Import** button in the app.
 
 **Data** is saved automatically on every change to:
 - **Mac:** `~/Documents/runway/runway-backup.txt`
