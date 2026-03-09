@@ -161,7 +161,7 @@ Click **Import** and select a `runway-backup.txt` file. This replaces all curren
 
 ![Dark mode](screenshots/15-dark-mode.png)
 
-Runway follows your system appearance automatically. No setting needed.
+Runway follows your system appearance by default. Use the **☀️ / 🌙** button in the header to override it — your choice is remembered.
 
 ---
 

@@ -34,6 +34,31 @@ export default function App() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state])
 
+  const [theme, setTheme] = useState<'light' | 'dark' | 'system'>(() => {
+    return (localStorage.getItem('runway-theme') as 'light' | 'dark' | 'system') ?? 'system'
+  })
+
+  useEffect(() => {
+    const root = document.documentElement
+    if (theme === 'system') {
+      root.removeAttribute('data-theme')
+    } else {
+      root.setAttribute('data-theme', theme)
+    }
+    localStorage.setItem('runway-theme', theme)
+  }, [theme])
+
+  function toggleTheme() {
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    setTheme(prev => {
+      if (prev === 'system') return systemDark ? 'light' : 'dark'
+      if (prev === 'dark') return 'light'
+      return 'dark'
+    })
+  }
+
+  const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+
   const [selectedYear, setSelectedYear] = useState(YEAR)
   const days = generateYearDays(selectedYear)
   const [zoom, setZoom] = useState(0)
@@ -252,6 +277,9 @@ export default function App() {
           <button className="year-nav-btn" onClick={() => setSelectedYear(y => y + 1)}>&#8250;</button>
         </div>
         <div className="header-controls">
+          <button className="theme-btn" onClick={toggleTheme} title="Toggle theme">
+            {isDark ? '☀️' : '🌙'}
+          </button>
           <button className="today-btn" onClick={handleTodayClick}>Today</button>
           <div className="header-divider" />
           <ZoomControls zoom={zoom} onZoomChange={handleZoomChange} />

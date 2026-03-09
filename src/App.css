@@ -18,7 +18,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #1a1a1a;
     --surface: #242424;
     --text-primary: #f0f0f0;
@@ -34,6 +34,23 @@
     --week-alt-bg: rgba(255, 255, 255, 0.035);
     --danger: #ff6b5a;
   }
+}
+
+:root[data-theme="dark"] {
+  --bg: #1a1a1a;
+  --surface: #242424;
+  --text-primary: #f0f0f0;
+  --text-secondary: #999999;
+  --border: #383838;
+  --accent: #5a9cff;
+  --hover: #2e2e2e;
+  --drop-over-bg: #1e2a3e;
+  --today-bg: #1e2e58;
+  --card-bg: #2e2e2e;
+  --gantt-row-alt: rgba(255, 255, 255, 0.02);
+  --month-alt-bg: rgba(255, 255, 255, 0.04);
+  --week-alt-bg: rgba(255, 255, 255, 0.035);
+  --danger: #ff6b5a;
 }
 
 *, *::before, *::after {
@@ -155,6 +172,23 @@ body {
 }
 
 .year-nav-btn:hover {
+  background: var(--hover);
+  color: var(--text-primary);
+}
+
+.theme-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 14px;
+  line-height: 1;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+}
+
+.theme-btn:hover {
   background: var(--hover);
   color: var(--text-primary);
 }
