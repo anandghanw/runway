@@ -41,7 +41,7 @@ export function TaskModal({ task, onSave, onDelete, onClose }: Props) {
   }
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
+    <div className="modal-overlay">
       <div className="modal-box" onClick={e => e.stopPropagation()}>
         <div className="modal-header">
           <h3>Edit Task</h3>
