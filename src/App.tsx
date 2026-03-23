@@ -92,7 +92,21 @@ export default function App() {
   const columnWidth = isYearView
     ? Math.max(1, containerWidth / days.length)
     : ZOOM_LEVELS[zoom].columnWidth
-  const today = todayStr()
+  const [today, setToday] = useState(todayStr)
+
+  useEffect(() => {
+    function msUntilMidnight() {
+      const now = new Date()
+      const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1)
+      return midnight.getTime() - now.getTime()
+    }
+    let interval: ReturnType<typeof setInterval>
+    const timeout = setTimeout(() => {
+      setToday(todayStr())
+      interval = setInterval(() => setToday(todayStr()), 24 * 60 * 60 * 1000)
+    }, msUntilMidnight())
+    return () => { clearTimeout(timeout); clearInterval(interval) }
+  }, [])
 
   // Track container width for year-view responsive column sizing
   useEffect(() => {
