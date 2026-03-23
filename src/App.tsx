@@ -254,6 +254,14 @@ export default function App() {
     setContextMenu(null)
   }
 
+  function handleCopyTask() {
+    if (!contextMenu) return
+    const src = contextMenu.task
+    const sameDateTasks = state.tasks.filter(t => t.date === src.date)
+    dispatch({ type: 'ADD_TASK', payload: { ...src, id: newId(), order: sameDateTasks.length } })
+    setContextMenu(null)
+  }
+
   function handleAddPhase() {
     const phase: Phase = {
       id: newId(),
@@ -387,6 +395,9 @@ export default function App() {
         >
           <button className="context-menu-item" onClick={handleCompleteTask}>
             {contextMenu.task.completed ? 'Mark Incomplete' : 'Mark Complete'}
+          </button>
+          <button className="context-menu-item" onClick={handleCopyTask}>
+            Duplicate
           </button>
           <button className="context-menu-item danger" onClick={handleDeleteTask}>
             Delete
