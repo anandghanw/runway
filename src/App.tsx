@@ -13,6 +13,7 @@ import { PhaseModal } from './components/GoalModal/GoalModal'
 import { TaskDndContext } from './dnd/TaskDndContext'
 import { PhaseDndContext } from './dnd/GoalDndContext'
 import { AboutModal } from './components/AboutModal/AboutModal'
+import { BacklogPanel } from './components/BacklogPanel/BacklogPanel'
 import { useBackupFile } from './hooks/useBackupFile'
 import { formatBackup } from './utils/backup'
 import { IS_DEMO } from './hooks/useAppState'
@@ -266,6 +267,23 @@ export default function App() {
     setEditPhase(phase)
   }
 
+  function handleAddBacklogTask() {
+    const order = state.tasks.filter(t => t.date === 'backlog').length
+    const task: Task = {
+      id: newId(),
+      title: 'New Task',
+      description: '',
+      date: 'backlog',
+      completed: false,
+      order,
+    }
+    dispatch({ type: 'ADD_TASK', payload: task })
+    setEditTask(task)
+  }
+
+  const backlogTasks = state.tasks.filter(t => t.date === 'backlog')
+  const scheduledTasks = state.tasks.filter(t => t.date !== 'backlog')
+
   return (
     <div className={`app${isYearView ? ' year-view' : ''}`}>
       <header className="app-header">
@@ -318,27 +336,34 @@ export default function App() {
 
       <div className="gantt-resizer" onMouseDown={handleResizerMouseDown} />
 
-      <div className="todo-scroll" ref={scrollRef}>
-        <TaskDndContext
-          tasks={state.tasks}
-          onMoveTask={(id, date, order) =>
-            dispatch({ type: 'MOVE_TASK', payload: { id, date, order } })
-          }
-          onReorderTasks={(date, ids) =>
-            dispatch({ type: 'REORDER_TASKS', payload: { date, ids } })
-          }
-        >
+      <TaskDndContext
+        tasks={state.tasks}
+        onMoveTask={(id, date, order) =>
+          dispatch({ type: 'MOVE_TASK', payload: { id, date, order } })
+        }
+        onReorderTasks={(date, ids) =>
+          dispatch({ type: 'REORDER_TASKS', payload: { date, ids } })
+        }
+      >
+        <div className="todo-scroll" ref={scrollRef}>
           <TodoSection
             days={days}
-            tasks={state.tasks}
+            tasks={scheduledTasks}
             columnWidth={columnWidth}
             onTaskClick={setEditTask}
             onTaskContextMenu={handleTaskContextMenu}
             onAddTask={handleAddTask}
             onGroupHeaderClick={handleGroupHeaderClick}
           />
-        </TaskDndContext>
-      </div>
+        </div>
+
+        <BacklogPanel
+          tasks={backlogTasks}
+          onTaskClick={setEditTask}
+          onTaskContextMenu={handleTaskContextMenu}
+          onAddTask={handleAddBacklogTask}
+        />
+      </TaskDndContext>
 
       <TaskModal
         task={editTask}

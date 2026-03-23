@@ -20,7 +20,7 @@ export function TaskModal({ task, onSave, onDelete, onClose }: Props) {
       setTitle(task.title)
       setDescription(task.description)
       setCompleted(task.completed)
-      setDate(task.date)
+      setDate(task.date === 'backlog' ? '' : task.date)
     }
   }, [task])
 
@@ -36,7 +36,7 @@ export function TaskModal({ task, onSave, onDelete, onClose }: Props) {
 
   function handleSave() {
     if (!task) return
-    onSave({ ...task, title: title.trim() || 'Untitled', description, completed, date: date || task.date })
+    onSave({ ...task, title: title.trim() || 'Untitled', description, completed, date: date || 'backlog' })
     onClose()
   }
 

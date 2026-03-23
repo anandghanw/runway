@@ -24,6 +24,9 @@ interface Props {
 
 const collisionDetection: CollisionDetection = (args) => {
   const pointer = pointerWithin(args)
+  // Always prefer backlog if pointer is over it
+  const backlog = pointer.find(c => c.id === 'backlog')
+  if (backlog) return [backlog]
   if (pointer.length > 0) return pointer
   const rect = rectIntersection(args)
   if (rect.length > 0) return rect
@@ -66,7 +69,11 @@ export function TaskDndContext({ children, tasks, onMoveTask, onReorderTasks }: 
     const overId = String(over.id)
     const isDateTarget = DATE_RE.test(overId)
 
-    if (isDateTarget) {
+    if (overId === 'backlog') {
+      // Dropped on the backlog panel
+      const backlogTasks = tasks.filter(t => t.date === 'backlog' && t.id !== draggedTask.id)
+      onMoveTask(draggedTask.id, 'backlog', backlogTasks.length)
+    } else if (isDateTarget) {
       // Dropped on a column (empty area)
       const targetTasks = tasks
         .filter(t => t.date === overId && t.id !== draggedTask.id)

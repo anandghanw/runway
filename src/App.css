@@ -211,6 +211,7 @@ body {
   -webkit-app-region: no-drag;
 }
 
+
 .gantt-panel {
   flex-shrink: 0;
   position: relative;
